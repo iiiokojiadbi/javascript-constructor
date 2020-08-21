@@ -12,7 +12,6 @@ function title(block) {
 
 function text(block) {
   const { styles } = block.options;
-  
   return row(col(`
         <div class='col-sm' style='margin-bottom: 0;'>
           <p>${ block.value }</p>
