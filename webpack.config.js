@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
   },
   devServer: {
-    port: 3333,
+    port: 3334,
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -18,6 +18,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: '/node_modules/',
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
@@ -25,7 +32,7 @@ module.exports = {
         test: /\.(png|svg|jpe?g|gif)$/i,
         use: {
           loader: 'file-loader?name=./images/[contenthash].[ext]',
-        }
+        },
       },
     ],
   },
